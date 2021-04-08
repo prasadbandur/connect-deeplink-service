@@ -3,6 +3,7 @@ package com.goeuro.deeplink.providerconfig.client;
 import com.goeuro.deeplink.config.ProviderConfigEnvironment;
 import com.goeuro.deeplink.http.WebClientFactory;
 import com.goeuro.deeplink.http.model.WebClientConfiguration;
+import com.goeuro.deeplink.providerconfig.model.MissingProviderConfigException;
 import com.goeuro.deeplink.providerconfig.model.ProviderConfig;
 import com.omio.coverage.connect.providerconfig.model.ProviderConfigRequest;
 import com.omio.coverage.connect.providerconfig.model.ProviderConfigResponse;
@@ -83,7 +84,7 @@ public class ProviderConfigClient {
                 providerConfigProviderConfigResponse.getData().getConnects())
         .onErrorResume(Mono::error)
         .doOnError(
-            throwable -> log.error("Error occurred while calling provider config ", throwable));
+            throwable -> log.error("Error occurred while calling provider config ", new MissingProviderConfigException(throwable)));
   }
 
   private Mono<ProviderConfigResponse<ProviderConfig>> request() {

@@ -11,7 +11,7 @@ import java.time.Duration;
 @RequiredArgsConstructor
 public class CacheFactory {
 
-  private static final String DEFAULT_CACHE_NAME = "connect-search-cache";
+  private static final String DEFAULT_CACHE_NAME = "connect-deeplink-cache";
 
   public GuavaCache getCache(Duration ttl, Long maximumSize) {
     return new GuavaCache(
