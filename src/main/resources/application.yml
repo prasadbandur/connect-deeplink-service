@@ -1,0 +1,15 @@
+spring.application.name: connect-deeplink-service
+spring.main.banner-mode: "off"
+spring.security.enabled: false
+
+grpcPort: 8710
+maxInMemorySize: 16777216
+
+connect.offer:
+  host: connect-offer-store.connect-offer-store
+  port: 8710
+
+provider-config:
+  host: http://k8s-qa-1.goeuro.ninja/provider-config-graphql/
+  connectionTimeout: 10000
+  readTimeout: 10000
